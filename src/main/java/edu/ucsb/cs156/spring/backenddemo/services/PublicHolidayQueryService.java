@@ -23,7 +23,18 @@ public class PublicHolidayQueryService {
     public static final String ENDPOINT = "https://date.nager.at/api/v2/publicholidays/{year}/{countryCode}";
 
     public String getJSON(String year, String countryCode) throws HttpClientErrorException {
-        return "";
+        log.info("year={}, countryCode={}", year, countryCode);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        Map<String, String> uriVariables = Map.of("year", year, "countryCode", countryCode);
+        ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class,
+        uriVariables);
+
+        return re.getbody();
     }
 
    
