@@ -13,11 +13,12 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
 @Slf4j
+@Component
 @Service
 public class UniversityQueryService {
 
