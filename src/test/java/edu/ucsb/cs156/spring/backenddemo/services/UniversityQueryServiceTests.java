@@ -25,7 +25,7 @@ public class UniversityQueryServiceTests {
     @Test
     public void test_getJSON() {
 
-        String name = "Santa%20Barbara";
+        String name = "Santa+Barbara";
         String expectedURL = UniversityQueryService.ENDPOINT.replace("{name}", name);
 
         String fakeJsonResult = "{ \"fake\" : \"result\" }";
@@ -35,7 +35,6 @@ public class UniversityQueryServiceTests {
                 .andExpect(header("Content-Type", MediaType.APPLICATION_JSON.toString()))
                 .andRespond(withSuccess(fakeJsonResult, MediaType.APPLICATION_JSON));
 
-        name = "Santa Barbara";
         String actualResult = universityQueryService.getJSON(name);
         assertEquals(fakeJsonResult, actualResult);
     }
