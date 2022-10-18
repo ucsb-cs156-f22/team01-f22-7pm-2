@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
@@ -30,7 +29,8 @@ public class PublicHolidaysController {
 
     @Autowired
     PublicHolidayQueryService PublicHolidayQueryService;
-    @ApiOperation(value = "Get public holidays for a given year and country", notes = "")
+    @ApiOperation(value = "Get public holidays for a given year and country", notes = "Public Holiday info received by Nager by the Worldwide Public Library")
+    @GetMapping("/get")
     public ResponseEntity<String> getEarthquakes(
         @ApiParam("year, e.g. 2012") @RequestParam String year,
         @ApiParam("2 letter country code, e.g. US, MX, CN") @RequestParam String countryCode
