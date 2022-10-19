@@ -19,16 +19,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
-import org.springframework.web.client.RestTemplate;
-
-import org.springframework.boot.web.client.RestTemplateBuilder;
-
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 @Slf4j 
 @Service
 public class ZipCodeQueryService {
+
+    ObjectMapper mapper = new ObjectMapper();
 
     private final RestTemplate restTemplate;
 
