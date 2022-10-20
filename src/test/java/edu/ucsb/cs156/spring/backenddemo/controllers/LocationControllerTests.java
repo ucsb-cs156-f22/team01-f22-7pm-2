@@ -38,7 +38,7 @@ public class LocationControllerTests {
     String location = "Goleta";
     when(mockLocationQueryService.getJSON(eq(location))).thenReturn(fakeJsonResult);
 
-    String url = String.format("/api/location/get?location=%s",location);
+    String url = String.format("/api/locations/get?location=%s",location);
 
     MvcResult response = mockMvc
         .perform( get(url).contentType("application/json"))
