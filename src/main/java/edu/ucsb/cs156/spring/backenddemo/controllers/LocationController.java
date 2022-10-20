@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Api(description="Location info from nominatim.org")
 @Slf4j
 @RestController
-@RequestMapping("/api/location")
+@RequestMapping("/api/locations")
 public class LocationController {
     
     ObjectMapper mapper = new ObjectMapper();
